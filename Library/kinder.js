@@ -74,7 +74,6 @@ HtmlBinder.prototype.load = function(url,success,error){
 			setTimeout(_fnc,
 				500-(endDate - startDate)
 				);
-
 		}
 		else {
 			setTimeout(_fnc,0-(endDate - startDate));
@@ -120,7 +119,7 @@ Navigator.prototype.push = function(element,description) {
 	}
 	else {
 		var secondElement = target.children()[1];
-		$(secondElement).trigger("disappear");
+		$(secondElement).find(" > div").trigger("disappear");
 	}
 	$(target).prepend($("<div>"));
 
@@ -158,8 +157,8 @@ Navigator.prototype._back = function() {
 		var currentElement = $(this.targetElement).children()[1]
 		var nextElement = $(this.targetElement).children()[2];
 		$(firstElement).remove();
-		$(currentElement).trigger("disable");
-		$(nextElement).trigger("appear");
+		$(currentElement).find(" > div").trigger("disable");
+		$(nextElement).find(" > div").trigger("appear");
 	}
 };
 Navigator.prototype.back = function(cnt) {
