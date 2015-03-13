@@ -1,0 +1,50 @@
+<script type="text/javascript">
+	$(function(){
+		$("#StyleSheetLoad button").click(function(){
+			var _html = $(this).html();
+			if (_html == "cssRemove") {
+				cssRemove();
+			}
+			else {
+				cssLoad("css/"+_html);
+			}
+		});
+	});
+</script>
+<div id="StyleSheetLoad" style="padding:10px;">
+
+	<div class="info">StyleSheetLoad</div>
+	<div class="info">
+		스타일시트를 불러오고 제거하는 기능<br/>
+		orchestra_lib.js 에서 함수로 제공
+	</div>
+	<div class="subTitle">cssLoad(path,css_id)</div>
+	<div class="info">
+		css파일을 불러와서 헤더에 붙여주는 기능<br/>
+		동일한 아이디로 다른 css를 불러오면 기존에 불러온 css를 제거한다<br/>
+		#arg<br/>
+		path - css파일의 경로(절대경로로 설정시 웹서버를 통한 서비스라면 '/', 로컬이라면 /www/ 경로를 루트 경로로 인식함)<br/>
+		css_id - css 관리를 위한 아이디(기본값 "");
+	</div>
+	<div class="subTitle">사용 예</div>
+	<div class="info">
+		cssLoad("/css/a.css","title");<br/>
+		cssLoad("/css/b.css","title");
+	</div>
+	<div class="subTitle">cssRemove(css_id)</div>
+	<div class="info">
+		불러온 css를 제거한다<br/>
+		#arg<br/>
+		css_id - css 관리를 위한 아이디(기본값 "");
+	</div>
+	<div class="subTitle">사용 예</div>
+	<div class="info">
+		cssRemove("title");
+	</div>
+	<div class="subTitle">샘플</div>
+	<div class="info">
+		<button>a.css</button>
+		<button>b.css</button>
+		<button>cssRemove</button>
+	</div>
+</div>

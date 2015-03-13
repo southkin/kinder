@@ -1,0 +1,61 @@
+<style type="text/css">
+	#testContainer {
+		width:100%;
+		height:200px;
+		position:relative;
+	}
+</style>
+<script type="text/javascript">
+	$(function(){
+		var testBinder = new HtmlBinder($("#testContainer"));
+		testBinder.load("pages/sample1.html",function(){},function(e){console.log(e);});
+		$("#HtmlBinder button").click(function(){
+			var html = $(this).html();
+			testBinder.load("pages/"+html,function(){},function(e){console.log(e);});
+		});
+	});
+</script>
+<div id="HtmlBinder" style="padding:10px;">
+
+	<div class="info">HtmlBinder</div>
+	<div class="info">다른 html파일의 내용을 AJAX로 불러와 특정 엘리먼트 내 InnerHtml 에 붙여넣는 기능을 수행</div>
+	<div class="subTitle">new HtmlBinder(element)</div>
+	<div class="info">
+		arg : element - 불러온 html 내용을 InnerHTML에 넣을 엘리먼트<br/>
+		return : HtmlBinder 오브젝트<br/>
+	</div>
+	<div class="subTitle">사용 예</div>
+	<div class="info">
+		var testBinder = new HtmlBinder($("#testContainer"));
+	</div>
+	<div class="subTitle">.load(url,successFnc,failFnc)</div>
+	<div class="info">
+		#arg<br/>
+		url - 불러올 html파일의 url<br/>
+		successFnc - 성공했을때 실행할 함수<br/>
+		failFnc - 실패했을때 실행할 함수<br/>
+		return : 없음
+	</div>
+	<div class="subTitle">사용 예</div>
+	<div class="info">
+		testBinder.load("./pages/sample1.html");
+	</div>
+	<div class="subTitle">샘플</div>
+	<div class="info">
+		<button>sample1.html</button>
+		<button>sample2.html</button>
+		<button>sample3.html</button>
+		<div id="testContainer">
+			
+		</div>
+	</div>
+	<div class="subTitle">
+		Class
+	</div>
+	<div class="info">
+		[[HtmlBinderElement]].HtmlBinder_Animation<br/>
+		#load시 애니메이션 효과를 적용<br/>
+		[[불러온 HTML 내의 엘리먼트]].binder_FullSize<br/>
+		#바인더 엘리먼트의 width,height 값으로 해당 엘리먼트의 width,height 값을 설정함
+	</div>
+</div>

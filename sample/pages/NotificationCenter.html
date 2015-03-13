@@ -1,0 +1,66 @@
+<style type="text/css">
+</style>
+<script type="text/javascript">
+	$(function(){
+		NotificationCenter.addListener("event1","receiver1",function(info){$("#receiver1").val(info.infoTxt)});
+		NotificationCenter.addListener("event2","receiver1",function(info){$("#receiver1").val(info.infoTxt)});
+		NotificationCenter.addListener("event1","receiver2",function(info){$("#receiver2").val(info.infoTxt)});
+		$("#NotificationCenter button").click(function(){
+			NotificationCenter.post($(this).html(),{infoTxt:$("#notiTxt").val()});
+			$("#notiTxt").val("");
+		});
+	});
+</script>
+<div id="NotificationCenter" style="padding:10px;">
+
+	<div class="info">NotificationCenter</div>
+	<div class="info">
+		특정 엘리먼트의 이벤트가 아닌 전역 이벤트를 발생시켜 리스너 등록한 모든 작업을 수행하도록 하는 기능
+	</div>
+	<div class="subTitle">NotificationCenter</div>
+	<div class="info">
+		여러 오브젝트를 생성할 필요가 없으므로 new 로 새 오브젝트를 생성하지 않고 NotificationCenter 자체를 오브젝트로 사용함
+	</div>
+	<div class="subTitle">.addListener(notiName,notiId,fnc)</div>
+	<div class="info">
+		#arg<br/>
+		notiName - 이벤트 명<br/>
+		notiId - 이벤트리스너 아이디<br/>
+		fnc - 이벤트 발생시 수행할 함수<br/>
+		return : 없음
+	</div>
+	<div class="subTitle">사용 예</div>
+	<div class="info">
+		NotificationCenter.addListener("event1", "notiSample", function(info){$(".cache").html(info.cache)});
+	</div>
+	<div class="subTitle">.removeListener(notiName,notiId)</div>
+	<div class="info">
+		#arg<br/>
+		notiName - 이벤트 명<br/>
+		notiId - 이벤트리스너 아이디<br/>
+		return : 없음
+	</div>	
+	<div class="subTitle">사용 예</div>
+	<div class="info">
+		NotificationCenter.removeListener("event1", "notiSample");
+	</div>
+	<div class="subTitle">.post(notiName,info)</div>
+	<div class="info">
+		#arg<br/>
+		notiName - 이벤트 명<br/>
+		info - 이벤트 인자<br/>
+		return : 없음
+	</div>	
+	<div class="subTitle">사용 예</div>
+	<div class="info">
+		NotificationCenter.post("event1",{sampleText:"sample"});
+	</div>
+	<div class="subTitle">샘플</div>
+	<div class="info">
+		<input id="notiTxt" type="text"/>
+		<button>event1</button>
+		<button>event2</button><br/>
+		<input id="receiver1" readonly="true" type="text" placeholder="event1,event2"/>
+		<input id="receiver2" readonly="true" type="text" placeholder="event1"/>
+	</div>
+</div>

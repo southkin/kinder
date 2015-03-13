@@ -1,0 +1,163 @@
+<style type="text/css">
+	#testContainer {
+		width:100%;
+		height:200px;
+		position:relative;
+	}
+</style>
+<script type="text/javascript">
+	$(function(){
+		var pageAddFnc = function(fileName) {
+			var element = $("<div>",{style:"width:100%; height:100%; position:relative"});
+			var binder = new HtmlBinder(element);
+			binder.load("pages/"+fileName);
+			testNavi.push(element);
+		}
+		$("#Navigator button").click(function(){
+			pageAddFnc($(this).html());
+		});
+		$("#testNaviBack").click(function(){
+			if (!testNavi.hasBack()) {
+				alert('첫 페이지 입니다.')
+				return;
+			}
+			testNavi.back();
+		});
+		var testNavi = new Navigator($("#testContainer"));
+		pageAddFnc("sample1.html")
+	});
+</script>
+<div id="Navigator" style="padding:10px;">
+
+	<div class="info">Navigator</div>
+	<div class="info">
+		Html 엘리먼트를 child로 추가하여 정렬 순서에 따라 보여주는 위치를 변경하여 네비게이터 형태로 보여주는 기능<br/>
+		HtmlBinder 와 같이 사용하여 다른 Html의 내용을 불러오도록 사용하는것이 편리함
+	</div>
+	<div class="subTitle">new Navigator(element)</div>
+	<div class="info">
+		arg : element - 하위 엘리먼트들을 네비게이션 형태로 보여줄 엘리먼트<br/>
+		return : Navigator 오브젝트<br/>
+	</div>
+	<div class="subTitle">사용 예</div>
+	<div class="info">
+		var testNavi = new Navigator($("#testContainer"));
+	</div>
+	<div class="subTitle">.push(element,description)</div>
+	<div class="info">
+		#arg<br/>
+		element - html엘리먼트<br/>
+		description - getCurrentDescription 함수 실행시 리턴시킬 현재 엘리먼트 뷰에 대한 설명
+		return : 없음
+	</div>
+	<div class="subTitle">사용 예</div>
+	<div class="info">
+		#엘리먼트 생성<br/>
+		testNavi.push($("&ltdiv&gt").html('sample'));<br/>
+		#엘리먼트 참조<br/>
+		testNavi.push($("#testDiv"));<br/>
+		#HtmlBinder로 다른 Html의 내용을 불러온 엘리먼트 참조<br/>
+		var element = $("&ltdiv&gt",{style:"width:100%; height:100%; position:relative"});<br/>
+		var binder = new HtmlBinder(element);<br/>
+		binder.load("pages/sample1.html");<br/>
+		testNavi.push(element,'Navi_Child1');<br/>
+	</div>
+	<div class="subTitle">.pushWithURL(url)</div>
+	<div class="info">
+		#arg<br/>
+		url - html의 URL<br/>
+		return : 없음<br/>
+		#전달받은 URL 의 HTML 내 BODY 를 HtmlBinder를 통해 불러와서 push 하는 함수로 description 값에는 url 이 저장된다.
+	</div>
+	<div class="subTitle">사용 예</div>
+	<div class="info">
+		testNavi.pushWithURL('pages/sample1.html');
+	</div>
+	<div class="subTitle">.getCurrentDescription()</div>
+	<div class="info">
+		#arg<br/>
+		없음<br/>
+		return : 현재 화면에 보여지는 엘리먼트의 description 값
+	</div>
+	<div class="subTitle">사용 예</div>
+	<div class="info">
+		if (testNavi.getCurrentDescription().match(/\.(html|htm)/gi)) {<br/>
+			alert('html 파일 입니다.');<br/>
+		}<br/>
+	</div>
+	<div class="subTitle">.back(cnt)</div>
+	<div class="info">
+		#arg<br/>
+		cnt - 뒤로 돌릴 갯수 //지정하지 않으면 기본값 1<br/>
+		return : 없음<br/>
+	</div>
+	<div class="subTitle">사용 예</div>
+	<div class="info">
+		testNavi.back();<br/>
+		testNavi.back(1);<br/>
+		testNavi.back(9999);<br/>
+	</div>
+	<div class="subTitle">.count()</div>
+	<div class="info">
+		#arg<br/>
+		없음<br/>
+		return : push 된 엘리먼트의 수<br/>
+	</div>
+	<div class="subTitle">사용 예</div>
+	<div class="info">
+		var count = testNavi.count();
+	</div>
+	<div class="subTitle">.hasBack()</div>
+	<div class="info">
+		#arg<br/>
+		없음<br/>
+		return : 뒤로 돌릴 수 있을정도로 push 된 엘리먼트가 있는지 여부(뷰 카운트가 2개 이상)<br/>
+	</div>
+	<div class="subTitle">사용 예</div>
+	<div class="info">
+		if (testNavi.hasBack()) {<br/>
+		...<br/>
+		}<br/>
+	</div>
+	<div class="subTitle">.goto(idx)</div>
+	<div class="info">
+		#arg<br/>
+		idx - 보여줄 엘리먼트의 인덱스
+		return : 없음<br/>
+	</div>
+	<div class="subTitle">사용 예</div>
+	<div class="info">
+		testNavi.goto(1);<br/>
+	</div>
+	<div class="subTitle">샘플</div>
+	<div class="info">
+		<button>sample1.html</button>
+		<button>sample2.html</button>
+		<button>sample3.html</button>
+		<div class="navigationBar">
+			<h1>Navigator</h1>
+			<div class="navi_backBtn" id="testNaviBack"><span>이전</span></div>
+		</div>
+		<div id="testContainer">
+			
+		</div>
+	</div>
+	<div class="subTitle">
+		Class
+	</div>
+	<div class="info">
+		[[NavigatorElement]]no_Animation<br/>
+		#push와 back 동작중 애니메이션을 사용하지 않음
+	</div>
+	<div class="subTitle">
+		Event
+	</div>
+	<div class="info">
+		disappear<br/>
+		#화면에서 벗어날때 발생되는 이벤트<br/>
+		appear<br/>
+		#화면에서 벗어나있던 중 다시 화면에 보여질때 발생되는 이벤트<br/>
+		disable<br/>
+		#back 되어 사용되지 않게 되었을때 발생되는 이벤트<br/>
+	</div>
+</div>
