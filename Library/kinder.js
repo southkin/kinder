@@ -269,15 +269,11 @@ var POPUP = {
 		$(".__popup_container").addClass("noAnimation");
 		$(".__popup_container").css("top",$("body").scrollTop());
 		setTimeout(function(){
-			var marginLeft = -$(item).width()*0.5;
-			var marginTop = -$(item).height()*0.5;
 			$(item).css({
 				position:"absolute",
 				top:"50%",
 				left:"50%",
 				transform: "translate(-50%, -50%)"
-				// "margin-left":marginLeft,
-				// "margin-top":marginTop
 			});
 			$(POPUP._contents()).append(item);
 			POPUP._showing = true;
