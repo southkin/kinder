@@ -1,0 +1,27 @@
+<script type="text/javascript">
+	$(function(){
+		var textArr = [
+			"-당시 클라이언트 웹서버가 매우 느려서 웹서버의 이용을 최대한 줄여야 하는 이슈 발생",
+			"-Web의 html,javascript,css 로 분리된 개발이 개인적으로 불편해서 만들어봄",
+			"-클라이언트 웹서버가 usb1.1 외장하드에 연결되어있던것을 제거한 뒤 이슈가 사라져서 사용하지 않은 라이브러리"
+		];
+		var textIdx = 0;
+		if (typeof navi != "undefined") {
+			cssLoad(rootDir+"Library/kinder.css","kinder");
+			cssLoad(rootDir+"Presentation/style.css","presentation");
+			nextPages.push(rootDir+"Presentation/Kinder/page3.html");
+		}
+		for (idx in textArr) {
+			next_fnc.push(function(){
+				var text = textArr[textIdx++];
+				$("#_page2Txt").html($("#_page2Txt").html()+text+"<br/>");
+			});
+		}
+	});
+</script>
+<div class="textArea">
+	Rich Internet Application 제작용으로 개발<br/>
+	<div id="_page2Txt">
+		
+	</div>
+</div>

@@ -1,8 +1,11 @@
 var touch = "ontouchend" in document;
 var pressEvent = (touch) ? 'touchend' : 'click';
 
-function cssLoad(path,css_id) {
+function cssLoad(path,css_id,override=true) {
 	var cssId = "_css_"+(css_id || "");
+	if (!override && $("#"+css_id) != null) {
+		return;
+	}
 	$("#"+cssId).remove();
 	var css = $("<link>",{
 		id:cssId,

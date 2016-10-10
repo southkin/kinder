@@ -1,0 +1,28 @@
+<script type="text/javascript">
+	$(function(){
+		var textArr = [
+			"-서비스의 개념이 너무 넓은것이 아닌가..",
+			"-귀에 걸면 귀걸이 코에 걸면 코걸이..",
+			"-그냥 하던대로..작업 후 '이것이 SOA방식으로 작업되었나?' 를 질문하면 대부분 true",
+			"-그래도 어느정도 신경쓰며 작업하다보면 거대한 핸들러가 만들어지는건 자제가 되는듯.."
+		];
+		var textIdx = 0;
+		if (typeof navi != "undefined") {
+			cssLoad(rootDir+"Library/kinder.css","kinder");
+			cssLoad(rootDir+"Presentation/style.css","presentation");
+			nextPages.push(rootDir+"Presentation/Kinder/page1.html");
+		}
+		for (idx in textArr) {
+			next_fnc.push(function(){
+				var text = textArr[textIdx++];
+				$("#innerDiv").html($("#innerDiv").html()+text+"<br/>");
+			});
+		}
+	})
+</script>
+<div class="textArea">
+	개인적인 SOA 총평
+	<div id="innerDiv">
+		
+	</div>
+</div>

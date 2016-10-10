@@ -1,0 +1,27 @@
+<script type="text/javascript">
+	$(function(){
+		if (typeof navi != "undefined") {
+			cssLoad(rootDir+"Library/kinder.css","kinder");
+			cssLoad(rootDir+"Presentation/style.css","presentation");
+			nextPages.push(rootDir+"Presentation/SOA/page4.html");
+		}
+		next_fnc.push(function(){
+			$("#_soa2").removeClass("hidden");
+			$("#_soa").addClass("hidden");
+		});
+	})
+</script>
+<div class="textArea">
+<span id="_soa">SOA</span>
+<span id="_soa2" class="hidden">흔한 개발방법론</span>
+<div class="sub">
+	전체 시스템의 구성을 서비스별로 나누어 구분하여 개발,관리
+	<div>
+		-독립적으로 실행이 가능하길 권장<br/>
+		-인풋,아웃풋 인터페이스만 충족한다면 내부 코드는 신경쓰지 않아도 됨<br/>
+		-협업시 작업 분담이 쉬움<br/>
+		-다른 서비스와의 의존성이 적으므로 사이드이펙트에 대한 걱정이 줄어듬<br/>
+		-단위테스트가 용이함
+	</div>
+</div>
+</div>

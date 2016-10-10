@@ -1,0 +1,67 @@
+body {
+	background-color: #acacac;
+}
+body,html {
+	width:100%;
+	height:100%;
+	margin:0px;
+	padding:0px;
+}
+.hidden {
+	display:none;
+}
+.mainTitle {
+	position:absolute;
+	top:50%;
+	left:0;
+	width:100%;
+	height:50px;
+	margin-top:-25px;
+	font-size: 70px;
+	text-align: center;
+}
+.textArea {
+	position:absolute;
+	top:10%;
+	left:10%;
+	width:80%;
+	height:80%;
+	text-align: left;
+	font-size:50px;
+}
+.textArea div {
+	padding-left:50px;
+	font-size:40px;
+}
+.textArea div div {
+	font-size:30px;
+}
+.textArea div div div {
+	font-size:20px;
+}
+#contents {
+	width:100%;
+	height:100%;
+}
+#controller {
+	position: absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	z-index:99999;
+}
+#controller div {
+	float:left;
+	width:50%;
+	height:100%;
+}
+#copyright {
+	position: absolute;
+	bottom:0px;
+	right:0px;
+	left:0px;
+	text-align: center;
+	color:#acacac;
+	background-color: #dfdfdf;
+}

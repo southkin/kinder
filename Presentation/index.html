@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<script type="text/javascript" src="../other/iscroll.js"></script>
+	<script type="text/javascript" src="../other/jquery2.1.1.js"></script>
+	<script type="text/javascript" src="../Library/kinder.js"></script>
+	<title>빰빰빠밤빰빠바바바밤빰빰</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var navi;
+		var next_fnc = [];
+		var nextPages = [];
+		var rootDir = "file:///Users/kin/Documents/kinder/";
+		$(function(){
+			cssLoad("../Library/kinder.css","kinder",false);
+			cssLoad("style.css","presentation");
+			navi = new Navigator($("#contents"));
+			navi.pushWithURL("SOA/page1.html");
+		});
+
+		function prev() {
+			if (navi.hasBack()) {
+				nextPages.pop();
+				navi.back();
+				next_fnc = [];
+			}
+		}
+		function next() {
+			if (next_fnc.length != 0) {
+				var fnc = next_fnc.pop();
+				fnc();
+				return;
+			}
+			var _nextPage = nextPages[nextPages.length-1];
+			if (_nextPage != "") {
+				navi.pushWithURL(_nextPage);
+			}
+			else {
+				alert('끄ㅌ');
+			}
+		}
+	</script>
+	<div id="contents">
+	</div>
+	<div id="controller">
+		<div id="preBtn" onclick="prev();"></div>
+		<div id="nextBtn" onclick="next();"></div>
+	</div>
+	<div id="copyright">2016.09.28 south.kin in knowre</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<script type="text/javascript">
+	$(function(){
+		if (typeof navi != "undefined") {
+			cssLoad(rootDir+"Library/kinder.css","kinder");
+			cssLoad(rootDir+"Presentation/style.css","presentation");
+			nextPages.push("");
+		}
+		next_fnc.push(function(){
+			POPUP.show($("<iframe>",{src:rootDir+"sample/index.html",width:500,height:500}));
+		});
+	});
+</script>
+<style type="text/css">
+	#sampleDiv {
+		width:320px;
+		height:800px;
+	}
+</style>
+<div class="mainTitle">Demo</div>

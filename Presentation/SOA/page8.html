@@ -1,0 +1,15 @@
+<script type="text/javascript">
+	$(function(){
+		if (typeof navi != "undefined") {
+			cssLoad(rootDir+"Library/kinder.css","kinder");
+			cssLoad(rootDir+"Presentation/style.css","presentation");
+			nextPages.push(rootDir+"Presentation/SOA/domino.html");
+		}
+		next_fnc.push(function(){
+			POPUP.show($("<iframe>",{src:"http://www.knowreapi.com",style:"background-color:#fff;width:700px;height:600px;"}));
+		});
+	})
+</script>
+<div class="textArea">
+	knowre api
+</div>

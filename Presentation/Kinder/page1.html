@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<script type="text/javascript" src="../../other/iscroll.js"></script>
+	<script type="text/javascript" src="../../other/jquery2.1.1.js"></script>
+	<script type="text/javascript" src="../../Library/kinder.js"></script>
+	<title>page1</title>
+</head>
+<body>
+	<script type="text/javascript">
+		$(function(){
+			if (typeof rootDir == "undefined") {
+				rootDir = "../../";
+			}
+			cssLoad(rootDir+"Library/kinder.css","kinder");
+			cssLoad(rootDir+"Presentation/style.css","presentation");
+			if (typeof navi != "undefined") {
+				nextPages.push(rootDir+"Presentation/Kinder/page2.html");
+			}
+		})
+	</script>
+	<div class="mainTitle">
+	Kinder<span style="text-decoration:line-through;color:#cbcbcb;font-size:40px;">garten</span>.js
+	</div>
+</body>

@@ -1,0 +1,23 @@
+<script type="text/javascript">
+	$(function(){
+		if (typeof navi != "undefined") {
+			cssLoad(rootDir+"Library/kinder.css","kinder");
+			cssLoad(rootDir+"Presentation/style.css","presentation");
+			nextPages.push(rootDir+"Presentation/Kinder/demo.html");
+		}
+	});
+</script>
+<div class="textArea">
+	HtmlBinder
+	<div>
+		-html엘리먼트 혹은 다른 html파일의 body내 htmlText를 특정 엘리먼트 하위에 놓는 기능
+	</div><br/>
+	NavigationController
+	<div>
+		-HtmlBinder로 불러온 내용을 네비게이션컨트롤러 처럼 보이도록 css 제어
+	</div><br/>
+	PopupManager
+	<div>
+		-HtmlBinder로 불러온 내용을 화면 중앙에 팝업
+	</div>
+</div>

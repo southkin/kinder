@@ -55,7 +55,7 @@
 .Navigator {
 	position:relative;
 	overflow:hidden;
-	background-color: #fff;
+	/*background-color: #fff;*/
 }
 .Navigator > div {
 	width:100%;
@@ -131,7 +131,7 @@
 }
 .__popup_container.show {
 	display:block;
-	z-index:999;
+	z-index:99999999999999999;
 	opacity: 1;
 	-webkit-transform: scale(1);
 }
